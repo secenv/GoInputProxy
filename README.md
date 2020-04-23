@@ -17,11 +17,11 @@ In short, run the following commands:
 
 In your local machine, run
 
-`$ GOARCH=mips go build -ldflags '-s -w' -o /tmp/inputProxy inputProxy.go; cd /tmp; python3 -m http.server`
+`$ GOARCH=mips go build -ldflags '-s -w' -o /tmp/goInputProxy goInputProxy.go; cd /tmp; python3 -m http.server`
 
 In the (emulated) router, modify the $MYIP variable and then run
 
-`$ cd /tmp/; rm inputProxy; MYIP=192.168.0.101; wget http://$MYIP:8000/inputProxy; cp inputProxy /htdocs/cgibin; chmod 777 /htdocs/cgibin`
+`$ cd /tmp/; rm goInputProxy; MYIP=192.168.0.101; wget http://$MYIP:8000/goInputProxy; cp goInputProxy /htdocs/cgibin; chmod 777 /htdocs/cgibin`
 
 ## What is it for?
 In the aforementioned routers, "/htdocs/cgibin" receives inputs from the Mathopd HTTP server through STDIN, as arguments and as environment variables. goInputProxy will:
